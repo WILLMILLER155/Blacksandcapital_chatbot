@@ -1,0 +1,206 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thank you and goodbye
+
+- intent: new_user
+  examples: |
+    - new
+    - im new
+    - new here
+    - not a customer
+    - have not been here
+    - my first time here
+
+- intent: existing_user
+  examples: |
+    - I am a returning customer
+    - I have an account
+    - existing customer
+    - existing
+    - have an account
+    - been here before
+    - not new
+    - been here
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - not today
+    - maybe later
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: inquire_credit
+  examples: |
+    - Credit
+    - credit score
+    - help improve score
+    - need better credit
+    - how to up score
+    - increase credit score
+    - credit cards
+    - factors affect credit
+    - how is credit scored
+    - bad credit
+    - good credit
+
+- intent: inquire_fin_ed
+  examples: |
+    - financial education
+    - courses
+    - online education
+    - how can I learn
+    - I want to learn
+    - Teach me about
+    - what available courses 
+    - do you offer courses
+    - how can i learn
+    - where do I learn
+    - educate myself
+
+- intent: inquire_mooc_issues
+  examples: |
+    - having a problem with mooc
+    - MOOC
+    - massive open online courses
+    - not happy with your mooc
+
+- intent: refund_unsat
+  examples: |
+    - I am unsatisfied
+    - refund
+    - I want my money back
+    - refund my money
+    - I did not like your course
+    - bad review
+    - give me my money back
+    - I wasted my time with you
+    - Not a good course for me
+    - I expected more
+
+- intent: out_of_scope
+  examples: |
+    - consulting
+    - consult
+    - investment advice
+    - help me invest
+    - help my business
+    - series 7
+    - i dont know
+    - help me
+    - what is in the future
+    - who owns 
+
+- intent: data_collect_name
+  examples: |
+    - my name is [william miller](full_name)
+    - i am called [kym sudds](full_name)
+    - name is [devaughn](full_name)
+    - here is my name [chad](full_name)
+    - call me [Chiamaka](full_name)
+    - this is my name [Brian](full_name)
+    - my name is [Genesis](full_name)
+    - [Markus Walker](full_name)
+    - [Banyem](full_name)
+
+- intent: data_collect_email
+  examples: |
+    - my email is [willmiller155@gmail.com](email_address)
+    - email is [kymsudds@yahoo.com](email_address)
+    - email address is [random@yahoo.com](email_address)
+    - this is my email [something@hotmail.com](email_address)
+    - here is my email [elseat@something.com](email_address)
+    - my email is here [clueless@random.com](email_address)
+
+- intent: financial_education
+  examples: |
+    - please tell me more about finacial education you offer
+    - more information on financial education
+    - want education
+    - where can I find more information on education
+    - I want info on education
+    - direct me to your education options
+    - how much is your education    
+
+- intent: thanks
+  examples: |
+    - Thank you
+    - Thanks
+    - cool
+    - got it
+    - gotcha
+    - awesome
+    - wonderful
+    - those are great
+    - good
+    - interesting
+
+- intent: ask_ticker
+  examples: |
+   - what is the price of [SPR](tickers)
+   - quote for ticker [COK](tickers)
+   - spot price for [NVDA](tickers)
+   - how much has [aaple](tickers) risen
+   - where can i find the quote for [msft](tickers)
+   - price of [TSLA](tickers)
+   - ticker is [SPRD](tickers)
+   
+- intent: location
+  examples: |
+   - what is the weather in [Sacramento] (location)
+   - how hot is it in [London](location)
+   - how cold is it (Hong Kong)(location)
+   - what does it feel like in [Atlanta](location)
+   - is it storming outside in [Los Angeles](location)
+   - how hot is it in [New York](location)
+

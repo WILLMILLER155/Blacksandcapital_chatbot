@@ -1,0 +1,178 @@
+version: "3.1"
+stories:
+
+
+  - story: path 1 - full track credit
+    steps:
+    - intent: greet
+    - action: utter_inquire_assit
+    - checkpoint: check_question_path
+    - intent: inquire_credit
+    - action: utter_credit
+    - intent: affirm
+    - action: utter_new_or_existing
+    - intent: new_user
+    - action: utter_coll_name
+    - intent: data_collect_name
+    - action: utter_confirm_name
+    - intent: affirm
+    - action: utter_collect_email
+    - intent: data_collect_email
+    - action: utter_confirm_email
+    - intent: affirm
+    - action: utter_what_to_know_credit
+    - intent: inquire_credit
+    - action: utter_credit_expand
+    - intent: thanks
+    - action: utter_recheck
+    - checkpoint: redirect_or_finish
+ 
+  - story: path 2 - full track fin ed
+    steps:
+    - checkpoint: check_question_path
+    - intent: financial_education
+    - action: utter_financial
+    - intent: affirm
+    - action: utter_new_or_existing
+    - intent: new_user
+    - action: utter_coll_name
+    - intent: data_collect_name
+    - action: utter_confirm_name
+    - intent: affirm
+    - action: utter_collect_email
+    - intent: data_collect_email
+    - action: utter_confirm_email
+    - intent: affirm
+    - action: utter_what_to_know_fin
+    - intent: financial_education
+    - action: utter_fin_expand
+    - intent: thanks
+    - action: utter_recheck
+    - checkpoint: redirect_or_finish
+
+  - story: path 3 - full track MOOC
+    steps:
+    - checkpoint: check_question_path
+    - intent: inquire_mooc_issues
+    - action: utter_mooc
+    - intent: affirm
+    - action: utter_new_or_existing
+    - intent: new_user
+    - action: utter_collect_name
+    - intent: data_collect_name
+    - action: utter_confirm_name
+    - intent: affirm
+    - action: utter_collect_email
+    - intent: data_collect_email
+    - action: utter_confirm_email
+    - intent: affirm
+    - action: utter_what_to_know_mooc
+    - intent: inquire_mooc_issues
+    - intent: thanks
+    - action: utter_recheck
+    - checkpoint: redirect_or_finish
+
+  - story: path 4 - full track REFUND 
+    steps:
+    - checkpoint: check_question_path
+    - intent: refund_unsat
+    - action: utter_refund
+    - intent: affirm
+    - action: utter_coll_name
+    - intent: data_collect_name
+    - action: utter_confirm_name
+    - intent: affirm
+    - action: utter_collect_email
+    - intent: data_collect_email
+    - action: utter_confirm_email
+    - intent: affirm
+    - action: utter_no_refunds
+    - action: action_store_to_database
+  
+
+  - story: path 5 - full track Out of Scope
+    steps:
+    - checkpoint: check_question_path
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+    - action: utter_recheck
+    - checkpoint: end_support
+
+  - story: path 6- Switch up from out of scope
+    steps:
+    - checkpoint: end_support
+    - intent: affirm
+    - action: utter_inquire_assit
+    - checkpoint: check_question_path
+
+  - story: path 5- Switch up
+    steps:
+    - checkpoint: end_support
+    - intent: deny
+    - action: action_store_to_database
+
+  - story: switch up - credit
+    steps:
+    - checkpoint: redirect_or_finish
+    - intent: inquire_credit
+    - action: utter_credit
+    - intent: affirm
+    - action: utter_credit_expand
+    - intent: thanks
+    - action: action_store_to_database
+
+  - story: switch up - finanicial education
+    steps:
+    - checkpoint: redirect_or_finish
+    - intent: financial_education
+    - action: utter_financial
+    - intent: affirm
+    - action: utter_fin_expand
+    - intent: thanks
+    - action: action_store_to_database
+
+  - story: switch up - MOOC
+    steps:
+    - checkpoint: redirect_or_finish
+    - intent: inquire_mooc_issues
+    - action: utter_mooc
+    - intent: affirm
+    - action: utter_what_to_know_mooc
+    - intent: thanks
+    - action: action_store_to_database
+
+  - story: Weather
+    steps:
+    - intent: location
+    - action: action_get_weather
+    - intent: thanks
+    - action: utter_goodbye
+    
+  - story: Quotes
+    steps:
+    - intent: ask_ticker
+    - action: action_quote_price
+    - intent: thanks
+    - action: utter_goodbye
+
+  - story: Ask for email and store it
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: data_collect_email
+    - action: utter_collect_email
+    - intent: data_collect_email
+    - action: utter_confirm_email
+    - intent: affirm
+    - action: action_store_to_database
+
+  - story: Ask for name
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: data_collect_name
+    - action: utter_collect_name
+    - intent: data_collect_name
+    - action: utter_confirm_name
+    - intent: affirm 
+    - action: action_store_to_database   
