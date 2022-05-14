@@ -1,0 +1,191 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - inquire_credit
+  - inquire_fin_ed
+  - inquire_mooc_issues
+  - refund_unsat
+  - out_of_scope
+  - data_collect_name
+  - data_collect_email
+  - new_user
+  - existing_user
+  - financial_education
+  - thanks
+  - ask_ticker
+  - location
+  
+  
+actions:
+
+  - action_quote_price
+  - action_get_weather
+  - action_store_to_database
+
+entities:
+  - full_name
+  - email_address
+  - location
+  - tickers
+
+slots:
+
+  full_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: full_name
+
+  email_address:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: email_address
+
+  location:
+    type: any
+    influence_conversation: false
+    mappings: 
+    - type: from_entity
+      entity: location
+
+  tickers:
+    type: any
+    influence_conversation: false
+    mappings: 
+    - type: from_entity
+      entity: tickers
+
+
+
+responses:
+
+  utter_out_of_scope:
+  - text: "I'm sorry, I didnt get that. Could you please repeat."
+
+
+  utter_inquire_assit:
+  - text: "Hey! How might I be of assitance to you today. The areas that I may be of assitance are; MOOC issues, Financial education, or Credit."
+    buttons:
+      - title: "MOOC Issues"
+        payload: "/inquire_mooc_issues"
+      - title: "Credit Questions"
+        payload: "/inquire_credit"
+      - title: "Finacial Eductaion"
+        payload: "/inquire_fin_ed"
+      - title: "Refunds or Unsatisfied"
+        payload: "/refund_unsat"
+      - title: "Other"
+        payload: "/out_of_scope"
+  
+
+  utter_mooc:
+  - text: "Im sorry to hear you're having issues, let me get the online courses group into the conversation with you."
+
+  utter_credit:
+  - text: "I see you need help with credit issues / scores. Is this correct?"
+
+  utter_financial:
+  - text: "I see you need help with our Financial education department. Is this correct?"
+ 
+  utter_MOOC:
+  - text: "I see you need help with our MOOC'S department. Is this correct?"
+ 
+  utter_refund:
+  - text: "I see you have a problem or seek a refund. Is this correct?"
+
+  utter_new_or_existing:
+  - text: 'Are you a new or existing customer?'
+
+  utter_coll_name:
+  - text: "Please enter your name, so that we may get back to you on starting a potential membership with us."
+
+  utter_collect_email:
+  - text: "Please enter your email."
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Have a great day and good bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_new_account:
+  - text: 'You seem to be new here, lets collect some information. Please provide your name and email'
+
+  utter_collect_name:
+  - text: "What is your name"
+
+  utter_confirm_name:
+  - text: 'Thank you. Is {full_name} the correct name?'
+
+  utter_confirm_email:
+  - text: 'Thank you. Is the following correct for your email contact {email_address}.'
+
+  utter_existing_account:
+  - text: "I see you're an existing customer, glad to have you with us. Could you please provide your name, so that I may know who I am speaking with today."
+
+  utter_new_or_existin:
+  - text: 'Are you a new or existing customer?'
+
+  utter_good:
+  - text: "Good lets move on to the next step."
+  
+  utter_not_offered:
+  - text: "Sorry we are not offering consulting services at this time."
+
+  utter_weather:
+  - text: "The weather {weather} is today."
+  
+  utter_recheck:
+  - text: "Is there anything else I can help you with, or would that be all for today."
+
+  utter_what_to_know_credit:
+  - text: "What would you like to know about our credit program?"
+
+  utter_credit_expand:
+  - text: "We offer credit repair, and consultation services to help build your credit."
+
+  utter_what_to_know_fin:
+  - text: "What would you like to know about financial education?"
+
+  utter_fin_expand:
+  - text: "We offer comprehensive financialeducation classes to help you be ready for the future."
+
+  utter_what_to_know_mooc:
+  - text: "We offer courses in options trading to help you generate income."
+
+  utter_no_refunds:
+  - text: "Unfortunately we do not offer refunds at the moment. Sorry for the inconvenience."
+
+  utter_choices:
+  - text: "Which would you want to know?"
+    buttons:
+      - title: "Stock"
+        payload: "/ask_ticker"
+      - title: "Weather"
+        payload: "/ask_weather"
+      - title: "Time"
+        payload: "/ask_time"
+
+  utter_greet:
+  - text: "Hello, lets move on"
+
+
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
